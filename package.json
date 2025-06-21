@@ -149,7 +149,7 @@
     ]
   },
   "codegenConfig": {
-    "name": "VlckitViewSpec",
+    "name": "VLCPlayerSpec",
     "type": "all",
     "jsSrcsDir": "src",
     "android": {
@@ -157,7 +157,7 @@
     },
     "ios": {
       "componentProvider": {
-        "VlckitView": "VlckitView"
+        "VLCPlayer": "VLCPlayer"
       }
     }
   },

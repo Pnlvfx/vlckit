@@ -3,7 +3,7 @@ require "json"
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name         = "Vlckit"
+  s.name         = "react-native-vlckit"
   s.version      = package["version"]
   s.summary      = package["description"]
   s.homepage     = package["homepage"]
@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,mm,cpp}"
   s.private_header_files = "ios/**/*.h"
+  install_modules_dependencies(s)
 
- install_modules_dependencies(s)
+  s.ios.dependency 'MobileVLCKit', '3.6.0'
+  s.tvos.dependency 'TVVLCKit', '3.6.0'
 end

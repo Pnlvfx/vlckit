@@ -1,2 +1,2 @@
-export { default as VlckitView } from './VlckitViewNativeComponent';
-export * from './VlckitViewNativeComponent';
+export { default as VLCPlayer } from './VLCPlayerNativeComponent';
+export * from './VLCPlayerNativeComponent';

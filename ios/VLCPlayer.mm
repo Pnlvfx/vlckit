@@ -1,31 +1,31 @@
-#import "VlckitView.h"
+#import "VLCPlayer.h"
 
-#import <react/renderer/components/VlckitViewSpec/ComponentDescriptors.h>
-#import <react/renderer/components/VlckitViewSpec/EventEmitters.h>
-#import <react/renderer/components/VlckitViewSpec/Props.h>
-#import <react/renderer/components/VlckitViewSpec/RCTComponentViewHelpers.h>
+#import <react/renderer/components/VLCPlayerSpec/ComponentDescriptors.h>
+#import <react/renderer/components/VLCPlayerSpec/EventEmitters.h>
+#import <react/renderer/components/VLCPlayerSpec/Props.h>
+#import <react/renderer/components/VLCPlayerSpec/RCTComponentViewHelpers.h>
 
 #import "RCTFabricComponentsPlugins.h"
 
 using namespace facebook::react;
 
-@interface VlckitView () <RCTVlckitViewViewProtocol>
+@interface VLCPlayer () <RCTVLCPlayerViewProtocol>
 
 @end
 
-@implementation VlckitView {
+@implementation VLCPlayer {
     UIView * _view;
 }
 
 + (ComponentDescriptorProvider)componentDescriptorProvider
 {
-    return concreteComponentDescriptorProvider<VlckitViewComponentDescriptor>();
+    return concreteComponentDescriptorProvider<VLCPlayerComponentDescriptor>();
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
   if (self = [super initWithFrame:frame]) {
-    static const auto defaultProps = std::make_shared<const VlckitViewProps>();
+    static const auto defaultProps = std::make_shared<const VLCPlayerProps>();
     _props = defaultProps;
 
     _view = [[UIView alloc] init];
@@ -38,8 +38,8 @@ using namespace facebook::react;
 
 - (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps
 {
-    const auto &oldViewProps = *std::static_pointer_cast<VlckitViewProps const>(_props);
-    const auto &newViewProps = *std::static_pointer_cast<VlckitViewProps const>(props);
+    const auto &oldViewProps = *std::static_pointer_cast<VLCPlayerProps const>(_props);
+    const auto &newViewProps = *std::static_pointer_cast<VLCPlayerProps const>(props);
 
     if (oldViewProps.color != newViewProps.color) {
         NSString * colorToConvert = [[NSString alloc] initWithUTF8String: newViewProps.color.c_str()];
@@ -49,12 +49,12 @@ using namespace facebook::react;
     [super updateProps:props oldProps:oldProps];
 }
 
-Class<RCTComponentViewProtocol> VlckitViewCls(void)
+Class<RCTComponentViewProtocol> VLCPlayerCls(void)
 {
-    return VlckitView.class;
+    return VLCPlayer.class;
 }
 
-- hexStringToColor:(NSString *)stringToConvert
+- (UIColor *)hexStringToColor:(NSString *)stringToConvert
 {
     NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""];
     NSScanner *stringScanner = [NSScanner scannerWithString:noHashString];

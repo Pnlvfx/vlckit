@@ -10,15 +10,13 @@ npm install react-native-vlckit
 
 ## Usage
 
-
 ```js
-import { VlckitView } from "react-native-vlckit";
+import { VlcPlayer } from 'react-native-vlckit';
 
 // ...
 
-<VlckitView color="tomato" />
+<VLCPlayer />;
 ```
-
 
 ## Contributing
 
